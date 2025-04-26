@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+/* Style for each tiny dot */
+.dot {
+  position: absolute;
+  width: 4px; /* Very small size */
+  height: 4px; /* Very small size */
+  border-radius: 50%;
+  pointer-events: none; /* Prevent dots from interfering with other UI elements */
+  opacity: 0.8;
+  animation: droplet-animation 1.5s ease-out forwards;
+  padding:0.4rem;
+}
+
+/* Animation to simulate spreading and fading of tiny dots */
+@keyframes droplet-animation {
+  0% {
+      transform: scale(0) translate(-50%, -50%);
+      opacity: 1;
+  }
+  30% {
+      transform: scale(1.5) translate(-50%, -50%);
+      opacity: 0.8;
+  }
+  100% {
+      transform: scale(3) translate(-50%, -50%);
+      opacity: 0; /* Fade out */
+  }
+}
