@@ -84,16 +84,16 @@ function PlayGame() {
     const [step, setStep] = useState(0);
 
 
-    // Track correctly guessed letters
+    // Tracking  correctly guessed letters
     const correctGuessedLetters = new Set(
         guessedLetters.filter(function (letter) {
             return state?.textSelected.toUpperCase().includes(letter.toUpperCase());
         })
     );
-    // Check if user has guessed all unique letters correctly
+    // Checking  if user has guessed all unique letters correctly
     const hasWon = correctGuessedLetters.size === new Set(state?.textSelected.toUpperCase().split("")).size;
 
-    // Check if game is over (i.e., user has reached max steps)
+    // Checking  if game is over or not menas array length should not be reached 
     const isGameOver = step >= 7;
 
     return (
@@ -156,10 +156,10 @@ function PlayGame() {
                     Play Hangman Game
                 </h1>
 
-                {/* Main two-column container */}
+                {/* Main div with two parts one left and one right */}
                 <div className="flex flex-col md:flex-row justify-between  gap-20 w-full max-w-8xl mx-auto  p-5">
 
-                    {/* Left Panel: Game Section */}
+                    {/* Left Part Game Section */}
                     <div className="bg-[#2f2f2f] rounded-2xl shadow-lg pt-3 pl-6 pr-6 pb-6 w-full max-w-[60%] text-center">
                         <h2 className="text-4xl font-semibold text-gray-200 mb-4 px-3 py-4 relative">
                             <span className="absolute inset-0 bg-gradient-to-r from-teal-400 to-blue-500 opacity-30 rounded-md"></span>
@@ -167,12 +167,12 @@ function PlayGame() {
                         </h2>
 
                         <div className="relative inline-block bg-gradient-to-r from-teal-400 to-blue-500 text-transparent bg-clip-text font-semibold text-4xl px-2 py-1 rounded-md shadow-lg hover:scale-105 transition duration-300 ease-in-out mb-8">
-                            {/* Hint with gradient text and a shadow effect */}
+                           
 
                             {state?.hintSelected}
                         </div>
 
-                        {/* Hidden word for internal logic */}
+                       
                         {/* <p className="text-sm text-gray-500">Debug Word: {state?.textSelected}</p> */}
 
                         <MaskedText
@@ -183,7 +183,7 @@ function PlayGame() {
                     </div>
 
 
-                    {/* Right Panel: Hangman Image Placeholder */}
+                    {/* Right Panel part Hangman Image Placeholder */}
                     <div className="w-full md:w-[40%] bg-[#2f2f2f] rounded-2xl shadow-lg p-2 ">
                         <HangTheMan step={step} />
 
@@ -203,7 +203,8 @@ function PlayGame() {
 
 
 
-                {/* Overlay for game result */}
+                {/* Overlay or displaying the game result */}
+            
                 {(isGameOver || hasWon) && (
                     <div className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
                         <div className="text-center text-white p-10 rounded-lg bg-gray-800">
@@ -211,9 +212,9 @@ function PlayGame() {
                             {isGameOver && <p className="text-2xl mb-20 text-gray-400">The word was : {state?.textSelected}</p>}
                             {hasWon && <p className="text-4xl text-green-500 mb-20">You Win! Congratulations!</p>}
 
-                            {/* Use Link for SPA navigation */}
+                            {/* Using  Link for SPA navigation  instead of anchor */}
                             <Link
-                                to="/" // Navigate to the start page
+                                to="/" // Navigate to the home page
                                 className="mt-4 px-6 py-4 bg-teal-600 text-gray-300 text-lg font-semibold rounded-xl shadow-md hover:bg-blue-500 transition duration-300"
                             >
                                 Restart Game

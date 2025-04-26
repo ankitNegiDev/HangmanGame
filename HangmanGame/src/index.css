@@ -15,10 +15,10 @@
 /* Style for each tiny dot */
 .dot {
   position: absolute;
-  width: 4px; /* Very small size */
-  height: 4px; /* Very small size */
+  width: 4px; 
+  height: 4px;
   border-radius: 50%;
-  pointer-events: none; /* Prevent dots from interfering with other UI elements */
+  pointer-events: none;
   opacity: 0.8;
   animation: droplet-animation 1.5s ease-out forwards;
   padding:0.4rem;
@@ -36,6 +36,6 @@
   }
   100% {
       transform: scale(3) translate(-50%, -50%);
-      opacity: 0; /* Fade out */
+      opacity: 0; /* completely Fade out */
   }
 }

@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import Button from "../components/Button/Button";
 import { useEffect, useState } from "react";
-import handleMouseMove from "./handleMouseMove"; // ✅ Correct Import (assuming correct file name)
+import handleMouseMove from "./handleMouseMove"; 
 
 function Home() {
     useEffect(() => {
-        // ✅ Add mouse move event listener properly
         window.addEventListener("mousemove", handleMouseMove);
-
-        // ✅ Cleanup the event listener on unmount
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
         };
@@ -16,7 +13,7 @@ function Home() {
 
 
     function onClickHandlerOnePlayer() {
-        // navigation logic or game start
+        // navigation logic or game start .. for extended feature ... version 2.
     }
     function onClickHandlerMultiPlayer() {
         // navigation logic or game start
@@ -44,7 +41,7 @@ function Home() {
 
     return (
         <div className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden">
-            {/* Glowing Heading with Animation */}
+            {/* Heading */}
             <h1 className="text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text 
                 bg-gradient-to-r from-indigo-600 via-pink-400 to-teal-600 
                 drop-shadow-2xl mb-12 text-center animate__animated animate__fadeIn animate__delay-1s glow-effect">
