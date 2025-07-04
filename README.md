@@ -2,6 +2,10 @@
 
 This project is a web-based Hangman game application. It consists of a backend serving word data and a frontend React application for playing the game.
 
+## Live url of project
+
+[live url of project](https://hangman-game-p444.vercel.app/)
+
 ## Project Structure
 
 The project is organized into the following directories:
