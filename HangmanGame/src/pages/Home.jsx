@@ -26,7 +26,7 @@ function Home() {
     const [hint,setHin]=useState("");
 
     async function fetchWords(){
-        const response=await fetch('/api/words');
+        const response=await fetch('https://hangmanbackend-5.onrender.com/words');
         const data=await response.json();
         console.log("data is : ",data);
         const randomIndex=Math.floor(Math.random()*data.length);

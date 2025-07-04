@@ -36,12 +36,16 @@ cd 02_Hangmangame/BackendOfHangman
 ```bash
 npm install
 ```
-3. Start the backend server. (Assuming your `package.json` has a script to start the server, commonly `start` or `json-server`):
+3. Start the backend server.
    
 ```bash
 npm start
 ```
-   (If `npm start` doesn't work, check the `scripts` section in `BackendOfHangman/package.json` for the correct command, often `json-server --watch db.json --port 3001` or similar.)
+to start the backend json server write this command
+```bash
+npx json-server db.json
+```
+here db.json is the name of the file.
 
 The backend should now be running, likely serving data from `db.json`. Note the port the backend is running on (often 3000 or 3001).
 
