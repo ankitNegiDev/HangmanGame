@@ -36,7 +36,7 @@ function PlayGame() {
 
     if (state && state.hintSelected) {
         state.hintSelected = state.hintSelected.charAt(0).toUpperCase() + state.hintSelected.slice(1);
-      }
+    }
     console.log("state in PlayGame: ", state);
     console.log("Hint selected is : ", state?.hintSelected);
     console.log(`Word selected is or state.text selected is  : ${state?.textSelected}`);
@@ -151,15 +151,15 @@ function PlayGame() {
             </div> */}
 
 
-            <div className="min-h-screen px-4 py-4 text-white bg-[#1a1a1a]">
+            {/* <div className="min-h-screen px-4 py-4 text-white bg-[#1a1a1a]">
                 <h1 className="text-4xl md:text-5xl font-extrabold text-indigo-400 drop-shadow-md transition duration-300 hover:text-teal-400 text-center mb-3">
                     Play Hangman Game
                 </h1>
 
-                {/* Main div with two parts one left and one right */}
+                {/* Main div with two parts one left and one right *
                 <div className="flex flex-col md:flex-row justify-between  gap-20 w-full max-w-8xl mx-auto  p-5">
 
-                    {/* Left Part Game Section */}
+                    {/* Left Part Game Section *
                     <div className="bg-[#2f2f2f] rounded-2xl shadow-lg pt-3 pl-6 pr-6 pb-6 w-full max-w-[60%] text-center">
                         <h2 className="text-4xl font-semibold text-gray-200 mb-4 px-3 py-4 relative">
                             <span className="absolute inset-0 bg-gradient-to-r from-teal-400 to-blue-500 opacity-30 rounded-md"></span>
@@ -173,7 +173,7 @@ function PlayGame() {
                         </div>
 
                        
-                        {/* <p className="text-sm text-gray-500">Debug Word: {state?.textSelected}</p> */}
+                        {/* <p className="text-sm text-gray-500">Debug Word: {state?.textSelected}</p> *
 
                         <MaskedText
                             inputText={state?.textSelected || ""}
@@ -183,7 +183,7 @@ function PlayGame() {
                     </div>
 
 
-                    {/* Right Panel part Hangman Image Placeholder */}
+                    {/* Right Panel part Hangman Image Placeholder *
                     <div className="w-full md:w-[40%] bg-[#2f2f2f] rounded-2xl shadow-lg p-2 ">
                         <HangTheMan step={step} />
 
@@ -191,7 +191,7 @@ function PlayGame() {
 
                 </div>
 
-                {/* Restart Link */}
+                {/* Restart Link *
                 <div className="text-center mt-5">
                     <Link
                         to="/start"
@@ -203,7 +203,7 @@ function PlayGame() {
 
 
 
-                {/* Overlay or displaying the game result */}
+                {/* Overlay or displaying the game result *
             
                 {(isGameOver || hasWon) && (
                     <div className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
@@ -212,7 +212,7 @@ function PlayGame() {
                             {isGameOver && <p className="text-2xl mb-20 text-gray-400">The word was : {state?.textSelected}</p>}
                             {hasWon && <p className="text-4xl text-green-500 mb-20">You Win! Congratulations!</p>}
 
-                            {/* Using  Link for SPA navigation  instead of anchor */}
+                            {/* Using  Link for SPA navigation  instead of anchor *
                             <Link
                                 to="/" // Navigate to the home page
                                 className="mt-4 px-6 py-4 bg-teal-600 text-gray-300 text-lg font-semibold rounded-xl shadow-md hover:bg-blue-500 transition duration-300"
@@ -222,7 +222,80 @@ function PlayGame() {
                         </div>
                     </div>
                 )}
+            </div> */}
+
+
+            <div className="min-h-screen px-4 py-8 text-white bg-[#1a1a1a]">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-indigo-400 drop-shadow-md transition duration-300 hover:text-teal-400 text-center mb-8">
+                    Play Hangman Game
+                </h1>
+
+                {/* Main div with two parts */}
+                <div className="flex flex-col md:flex-row justify-between gap-8 w-full max-w-6xl mx-auto px-4">
+
+                    {/* Left Part - Game Area */}
+                    <div className="w-full md:w-1/2 lg:w-3/5 bg-[#2f2f2f] rounded-2xl shadow-lg p-6 text-center">
+                        <h2 className="text-2xl sm:text-3xl font-semibold text-gray-200 mb-6 relative">
+                            <span className="absolute inset-0 bg-gradient-to-r from-teal-400 to-blue-500 opacity-30 rounded-md"></span>
+                            <span className="relative z-10">Hint</span>
+                        </h2>
+
+                        <div className="relative inline-block bg-gradient-to-r from-teal-400 to-blue-500 text-transparent bg-clip-text font-semibold text-3xl sm:text-4xl px-3 py-2 rounded-md shadow-lg hover:scale-105 transition duration-300 ease-in-out mb-8">
+                            {state?.hintSelected}
+                        </div>
+
+                        <MaskedText
+                            inputText={state?.textSelected || ""}
+                            guessedLettersArray={guessedLetters}
+                        />
+
+                        <LetterButtons
+                            inputText={state?.textSelected}
+                            guessedLetterArray={guessedLetters}
+                            onLetterClick={handelLetterClick}
+                        />
+                    </div>
+
+                    {/* Right Part - Hangman Image */}
+                    <div className="w-full md:w-1/2 lg:w-2/5 bg-[#2f2f2f] rounded-2xl shadow-lg p-4 flex items-center justify-center">
+                        <HangTheMan step={step} />
+                    </div>
+                </div>
+
+                {/* Restart Link */}
+                <div className="text-center mt-8">
+                    <Link
+                        to="/start"
+                        className="inline-block px-6 py-3 bg-teal-500 text-white font-semibold rounded-xl shadow-md hover:bg-blue-500 transition duration-300"
+                    >
+                        Start Game
+                    </Link>
+                </div>
+
+                {/* Overlay for Game Result */}
+                {(isGameOver || hasWon) && (
+                    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+                        <div className="text-center text-white p-6 sm:p-10 rounded-lg bg-gray-800 max-w-md w-full mx-4">
+                            {isGameOver && (
+                                <>
+                                    <p className="text-2xl sm:text-3xl text-red-500 mb-6 font-semibold">Game Over! Better Luck Next Time</p>
+                                    <p className="text-lg sm:text-2xl text-gray-400 mb-10">The word was: {state?.textSelected}</p>
+                                </>
+                            )}
+                            {hasWon && (
+                                <p className="text-2xl sm:text-4xl text-green-500 mb-10">You Win! Congratulations!</p>
+                            )}
+                            <Link
+                                to="/"
+                                className="mt-4 px-6 py-3 bg-teal-600 text-gray-200 text-base sm:text-lg font-semibold rounded-xl shadow-md hover:bg-blue-500 transition duration-300"
+                            >
+                                Restart Game
+                            </Link>
+                        </div>
+                    </div>
+                )}
             </div>
+
 
 
         </>
