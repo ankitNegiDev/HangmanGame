@@ -1,5 +1,5 @@
 import { getLetterButtonStyle } from "./getLetterButtonStyle";
-const ALPHABETS="QWERTYUIOPASDFGHJKLZXCVBNM";
+const ALPHABETS="QWERTYUIOPASDFGHJKLZXCVBNM ";
 const ALPHABETSArr=ALPHABETS.split("");
 // console.log(ALPHABETSArr);
 function LetterButtons({inputText,guessedLetterArray,onLetterClick}){
